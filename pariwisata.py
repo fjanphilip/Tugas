@@ -67,7 +67,7 @@ def main():
 
 
     df = pd.read_csv('./hotel.csv')
-    st.write(df)
+    # df
 
 
     # In[21]:
@@ -79,7 +79,7 @@ def main():
     # In[22]:
 
 
-    st.write(data_tourism_rating.isna().sum())
+    data_tourism_rating.isna().sum()
 
 
     # In[9]:
@@ -101,21 +101,21 @@ def main():
     data_content_based_filtering = data_rekomendasi.copy()
     data_content_based_filtering['Tags'] = data_content_based_filtering['ulasan']
     data_content_based_filtering.drop(['ulasan'],axis=1,inplace=True)
-    st.write(data_content_based_filtering)
+    # data_content_based_filtering
 
 
     # In[11]:
 
 
     data_content_based_filtering.Tags = data_content_based_filtering.Tags.apply(preprocessing)
-    data_content_based_filtering
+    # data_content_based_filtering
 
 
     # In[ ]:
 
 
     vectors = tv.fit_transform(data_content_based_filtering.Tags).toarray()
-    st.write(vectors)
+    # vectors
 
 
     # In[ ]:
@@ -140,7 +140,7 @@ def main():
         return recommended_nama_tempats
     
     def print_recommendations(recommendations):
-        st.write("------ Hasil Rekomendasi Tempat Berdasarkan Kota Jakarta ------")
+        st.write("------ Hasil Rekomendasi Tempat Berdasarkan Kota ------")
         col1, col2 = st.columns(2)  # Mengatur jumlah kolom menjadi 2
 
         for index, recommendation in enumerate(recommendations, start=1):
